@@ -14,12 +14,12 @@ class ThirdViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        perform(#selector(showSplashScreen.showNavController), with: nil, afterDelay: 3)
+//        perform(#selector(showSplashScreen.showNavController), with: nil, afterDelay: 3)
     }
     
-    func showNavController(){
-        performSegue(withIdentifier: "showSplashScreen", sender: self)
-    }
+//    func showNavController(){
+//        performSegue(withIdentifier: "showSplashScreen", sender: self)
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
