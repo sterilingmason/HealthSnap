@@ -12,17 +12,28 @@ class registration: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var EmailAddress: UITextField!
     @IBOutlet var Password: UITextField!
-    var array = []
     
+    @IBOutlet var indicator1: UIActivityIndicatorView!
     
     @IBAction func Submit(_ sender: Any, forEvent event: UIEvent) {
+        indicator1.center = self.view.center
+        indicator1.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        indicator1.hidesWhenStopped = true
+        indicator1.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(indicator1)
+        
+        indicator1.startAnimating(UIView.setAnimationDelay(0.5))
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
+        shouldPerformSegue(withIdentifier: "alreadyRegistered", sender: nil)
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        indicator1.isHidden = true
         // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {

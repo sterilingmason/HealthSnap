@@ -10,10 +10,16 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
+    @IBOutlet weak var imgPic: UIImageView!
+    var pic: UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        pic = imgPic.image
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

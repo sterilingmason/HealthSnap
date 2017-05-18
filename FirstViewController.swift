@@ -32,15 +32,24 @@ class FirstViewController: UIViewController, UINavigationControllerDelegate, UII
         present(imagePicker, animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]){
-        
-        let img: String = UIImagePickerControllerMediaMetadata
-        self.dismiss(animated: true, completion: nil)
-        print(img)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "diagnosisSegue", let image = sender as? UIImage {
+            let des = segue.destination as! SecondViewController
+            des.pic = image
+        }
     }
+    
+    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]){
+        
+        let img = info[UIImagePickerControllerOriginalImage]
+                performSegue(withIdentifier: "diagnosisSegue", sender: img)
+            }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
+
         // Dispose of any resources that can be recreated.
     }
     
