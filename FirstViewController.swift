@@ -16,6 +16,7 @@ class FirstViewController: UIViewController, UINavigationControllerDelegate, UII
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        print("here")
     }
     
     @IBAction func Take(_ sender: AnyObject) {
@@ -39,11 +40,14 @@ class FirstViewController: UIViewController, UINavigationControllerDelegate, UII
         }
     }
     
-    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]){
-        
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let img = info[UIImagePickerControllerOriginalImage]
-                performSegue(withIdentifier: "diagnosisSegue", sender: img)
-            }
+        
+        
+        picker.dismiss(animated: true)
+        
+        self.performSegue(withIdentifier: "diagnosisSegue", sender: img)
+    }
 
     
     override func didReceiveMemoryWarning() {

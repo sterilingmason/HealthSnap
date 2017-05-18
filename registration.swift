@@ -16,17 +16,29 @@ class registration: UIViewController, UITextFieldDelegate {
     @IBOutlet var indicator1: UIActivityIndicatorView!
     
     @IBAction func Submit(_ sender: Any, forEvent event: UIEvent) {
-        indicator1.center = self.view.center
-        indicator1.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
         indicator1.hidesWhenStopped = true
-        indicator1.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        view.addSubview(indicator1)
+        indicator1.startAnimating()
+
         
-        indicator1.startAnimating(UIView.setAnimationDelay(0.5))
-        UIApplication.shared.beginIgnoringInteractionEvents()
         
-        shouldPerformSegue(withIdentifier: "alreadyRegistered", sender: nil)
         
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            let tabBarController = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController")
+            self.view.window?.rootViewController = tabBarController
+            
+            
+//            self.performSegue(withIdentifier: "alreadyRegistered", sender: nil)
+        }
+        
+    }
+    
+    @IBAction func Register(_ sender: Any) {
+        performSegue(withIdentifier: "registerSegue", sender: nil)
+    }
+    
+    @IBAction func SaveContinue(_ sender: Any) {
+        performSegue(withIdentifier: "homeSegue", sender: nil)
     }
     
     override func viewDidLoad() {
