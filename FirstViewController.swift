@@ -32,9 +32,11 @@ class FirstViewController: UIViewController, UINavigationControllerDelegate, UII
         present(imagePicker, animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
-    {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]){
+        
+        let img: String = UIImagePickerControllerMediaMetadata
         self.dismiss(animated: true, completion: nil)
+        print(img)
     }
     
     override func didReceiveMemoryWarning() {
