@@ -10,19 +10,19 @@ import UIKit
 
 class registration: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet var EmailAddress: UITextField!
-    @IBOutlet var Password: UITextField!
+    @IBOutlet var emailAddress: UITextField!
+    @IBOutlet var password: UITextField!
     
-    @IBOutlet var indicator1: UIActivityIndicatorView!
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+
+    }
+    
+    
     
     @IBAction func Submit(_ sender: Any, forEvent event: UIEvent) {
-        indicator1.hidesWhenStopped = true
-        indicator1.startAnimating()
 
-        
-        
-        
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             let tabBarController = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController")
             self.view.window?.rootViewController = tabBarController
@@ -34,24 +34,33 @@ class registration: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func Register(_ sender: Any) {
-        performSegue(withIdentifier: "registerSegue", sender: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.performSegue(withIdentifier: "homeSegue", sender: self)
+            
+            
+            
+            //performSegue(withIdentifier: "registerSegue", sender: self)
+        }
     }
     
     @IBAction func SaveContinue(_ sender: Any) {
-        performSegue(withIdentifier: "homeSegue", sender: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.performSegue(withIdentifier: "Segue", sender: self)
+            
+            
+            
+            //performSegue(withIdentifier: "registerSegue", sender: self)
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        indicator1.isHidden = true
         // Do any additional setup after loading the view.
+        emailAddress.delegate = self
+        password.delegate = self
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
 
     /*

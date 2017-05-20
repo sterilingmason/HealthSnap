@@ -16,7 +16,7 @@ class FirstViewController: UIViewController, UINavigationControllerDelegate, UII
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print("here")
+        
     }
     
     @IBAction func Take(_ sender: AnyObject) {

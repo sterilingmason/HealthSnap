@@ -1,32 +1,25 @@
 //
-//  ThirdViewController.swift
+//  FormViewController.swift
 //  HealthSnap
 //
-//  Created by Apple on 5/17/17.
+//  Created by Apple on 5/19/17.
 //  Copyright © 2017 Apple. All rights reserved.
 //
 
 import UIKit
 
-class ThirdViewController: UIViewController {
+class FormViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view.
-//        perform(#selector(showSplashScreen.showNavController), with: nil, afterDelay: 3)
     }
-    
-//    func showNavController(){
-//        performSegue(withIdentifier: "showSplashScreen", sender: self)
-//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
     
 
     /*
